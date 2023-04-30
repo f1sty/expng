@@ -8,6 +8,7 @@ Expng - is a general library to work with png files.
 - look at [this](https://github.com/arjan/pixels/)
 - read png
 - write png
+- decide should I use NIFs or native Elixir + binarystring
 
 ## Installation
 
