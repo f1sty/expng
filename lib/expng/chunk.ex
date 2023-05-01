@@ -47,6 +47,12 @@ defmodule Expng.Chunk do
   end
 
   @spec parse_chunk(t()) :: t()
+  def parse_chunk(%__MODULE__{type: "sBIT", data: data} = raw_chunk) do
+    parsed_data = to_charlist(data)
+
+    %{raw_chunk | data: parsed_data}
+  end
+
   def parse_chunk(%__MODULE__{type: "pHYs", data: data} = raw_chunk) do
     <<ppu_x::unsigned-integer-32, ppu_y::unsigned-integer-32, unit_specifier::integer>> = data
     unit_specifier = (unit_specifier == 0 && :unknown) || :meter
